@@ -26,7 +26,7 @@ function ensureModal() {
         <div id="bp-status" style="font-size:12px;opacity:0.7;min-height:1em;"></div>
         <div style="display:flex;justify-content:flex-end;gap:8px;">
             <button id="bp-copy">Copy</button>
-            <button id="bp-save">Save</button>
+            <button id="bp-save">Save and Copy</button>
             <button id="bp-close">Close</button>
         </div>
       </div>`;
@@ -83,7 +83,8 @@ async function doSave() {
             });
             return note.noteId;
         }, [promptsId, title, txt]);
-        setStatus(`Saved as "${title}" under Prompts.`);
+        await navigator.clipboard.writeText(txt);
+        setStatus(`Saved as "${title}" + copied to clipboard.`);
     } catch (e) {
         console.error(e);
         setStatus('Save failed — see console.');
