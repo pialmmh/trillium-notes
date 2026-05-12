@@ -1,0 +1,8 @@
+# Local bind-mounted Trilium data — never commit.
+/data/
+
+# Editor / OS noise
+.DS_Store
+*.swp
+.idea/
+.vscode/

@@ -1,0 +1,30 @@
+# trilium-buildprompt — Trilium with the Build Prompt feature pre-installed.
+#
+# Usage:
+#   docker compose up -d --build      # first time
+#   docker compose restart            # after completing Trilium setup wizard
+#
+# On the first start, Trilium creates a fresh DB and shows the setup wizard.
+# The seeder skips silently because user_data.isSetup is still false.
+# After you complete setup through the browser, restart the container — the
+# seeder runs, inserts the Build Prompt code note, then Trilium boots with it
+# already loaded.
+
+services:
+  trilium:
+    build:
+      context: .
+      args:
+        BASE_TAG: latest
+    image: pialmmh/trilium-buildprompt:latest
+    container_name: trilium-buildprompt
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:7081:8080"   # host:container — match your existing setup
+    volumes:
+      - ./data:/home/node/trilium-data
+    environment:
+      # Set if your host UID isn't 1000 to keep the bind-mount writable.
+      # USER_UID: "1000"
+      # USER_GID: "1000"
+      TRILIUM_DATA_DIR: /home/node/trilium-data
