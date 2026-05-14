@@ -2,8 +2,8 @@
 # Refresh ./document.db from the live Trilium data dir, commit, push.
 # Single-command backup. Idempotent — skips the commit when nothing changed.
 #
-# Usage:   ./refresh.sh
-# Cron:    */30 * * * *  /home/mustafa/trillium-notes/refresh.sh >> /tmp/trilium-refresh.log 2>&1
+# Usage:   ./refresh-snapshot-push.sh
+# Cron:    */30 * * * *  /home/mustafa/trillium-notes/refresh-snapshot-push.sh >> /tmp/trilium-refresh.log 2>&1
 #
 # Env vars:
 #   TRILIUM_DATA   override the source dir (default: $HOME/.trilium-data)

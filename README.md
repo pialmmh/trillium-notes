@@ -2,7 +2,7 @@
 
 Two things live in this repo:
 
-**Refresh + push** in one command: `./refresh.sh` (idempotent — no commit if the snapshot is unchanged).
+**Refresh + push** in one command: `./refresh-snapshot-push.sh` (idempotent — no commit if the snapshot is unchanged).
 
 
 ## 1. `document.db` — Trilium DB backup
