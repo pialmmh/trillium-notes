@@ -2,6 +2,9 @@
 
 Two things live in this repo:
 
+**Refresh + push** in one command: `./refresh.sh` (idempotent — no commit if the snapshot is unchanged).
+
+
 ## 1. `document.db` — Trilium DB backup
 
 Consistent SQLite snapshot taken with
